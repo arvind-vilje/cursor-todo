@@ -1,0 +1,303 @@
+html, body, #root {
+  box-sizing: border-box;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* AliceBlue background and full-width responsive layout */
+.todo-app-root {
+  min-height: 100vh;
+  background: aliceblue;
+  color: #222;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 2rem 0;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.todo-header {
+  width: 100%;
+  margin: 20px 0 1.5rem 0;
+  text-align: center;
+}
+.todo-header h1 {
+  font-size: 2.7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color:rgb(246, 246, 161);
+  text-shadow: 0 0 12px #749498, 0 0 24px #c0c07299;  
+  margin-top: 20px;
+  margin-bottom: 1.2rem;
+}
+.dashboard {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+.dash-item {
+  padding: 0.7em 1.2em;
+  border-radius: 1.5em;
+  font-weight: 600;
+  font-size: 1.1em;
+  background: #fff;
+  box-shadow: 0 0 8px #00e5ff33;
+}
+.dash-item.total {
+  color: #00e5ff;
+  border: 1.5px solid #00e5ff;
+}
+.dash-item.completed {
+  color: #00ffb3;
+  border: 1.5px solid #00ffb3;
+}
+.dash-item.pending {
+  color: #ff1744;
+  border: 1.5px solid #ff1744;
+}
+.progress-bars {
+  margin: 1.2rem 0 0.5rem 0;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.progress-label {
+  font-size: 0.95em;
+  color: #00e5ff;
+  margin-bottom: 0.2em;
+  text-align: left;
+}
+.progress-bar {
+  width: 100%;
+  height: 14px;
+  background: #e3f6fd;
+  border-radius: 8px;
+  margin-bottom: 0.7em;
+  overflow: hidden;
+  box-shadow: 0 0 8px #00e5ff33;
+}
+.progress-fill {
+  height: 100%;
+  transition: width 0.4s cubic-bezier(.4,2,.6,1);
+}
+.progress-fill.daily {
+  background: linear-gradient(90deg, #ff1744 60%, #00e5ff 100%);
+}
+.progress-fill.weekly {
+  background: linear-gradient(90deg, #00e5ff 60%, #ff1744 100%);
+}
+
+.todo-main {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.add-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7em;
+  margin-bottom: 1.2em;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+.todo-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.7em 1em;
+  border-radius: 1.5em;
+  border: none;
+  background: #fff;
+  color: #222;
+  font-size: 1.1em;
+  outline: none;
+  box-shadow: 0 0 8px #00e5ff33;
+  transition: box-shadow 0.2s;
+  box-sizing: border-box;
+}
+.todo-input:focus {
+  box-shadow: 0 0 12px #00e5ff99;
+}
+.add-btn {
+  background: linear-gradient(135deg, #ff1744 60%, #00e5ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.7em;
+  height: 2.7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em;
+  box-shadow: 0 0 12px #ff1744aa;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.1s;
+  margin-left: 0.5em;
+}
+.add-btn:hover {
+  box-shadow: 0 0 18px #00e5ffcc, 0 0 8px #ff1744cc;
+  transform: scale(1.08);
+}
+.error-msg {
+  color: #ff1744;
+  margin-bottom: 0.7em;
+  font-weight: 600;
+  text-shadow: 0 0 4px #ff1744aa;
+}
+.sections-container {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.pending-section, .completed-section {
+  flex: 1 1 350px;
+  background: #fff;
+  border-radius: 1.2em;
+  padding: 1.2em 1em 1.5em 1em;
+  margin-bottom: 1.5em;
+  min-width: 270px;
+  max-width: 600px;
+  box-shadow: 0 0 16px #00e5ff22;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+.pending-section h2 {
+  color: #ff1744;
+  margin-bottom: 0.7em;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+}
+.completed-section h2 {
+  color: #00ffb3;
+  margin-bottom: 0.7em;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+}
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7em 0.5em;
+  margin-bottom: 0.5em;
+  border-radius: 0.8em;
+  font-size: 1.08em;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+.pending-task {
+  background: linear-gradient(90deg, #fff 80%, #ff174422 100%);
+  color: #222;
+  box-shadow: 0 0 8px #ff174433;
+}
+.completed-task {
+  background: linear-gradient(90deg, #fff 80%, #00e5ff22 100%);
+  color: #00bfae;
+  text-decoration: line-through;
+  box-shadow: 0 0 8px #00e5ff33;
+}
+.actions {
+  display: flex;
+  gap: 0.5em;
+}
+.done-btn {
+  background: none;
+  border: none;
+  color: #00bfae;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.1s;
+}
+.done-btn:hover {
+  color: #00e5ff;
+  transform: scale(1.15);
+}
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff1744;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.1s;
+}
+.delete-btn:hover {
+  color: #222;
+  transform: scale(1.15);
+}
+.empty-msg {
+  color: #888;
+  font-size: 1em;
+  margin: 1em 0;
+}
+@media (max-width: 1100px) {
+  .sections-container {
+    flex-direction: column;
+    gap: 1.2em;
+    align-items: stretch;
+  }
+  .pending-section, .completed-section {
+    min-width: unset;
+    width: 100%;
+    max-width: 100vw;
+  }
+}
+@media (max-width: 700px) {
+  .todo-header h1 {
+    font-size: 2rem;
+  }
+  .dashboard {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  .progress-bars {
+    max-width: 100%;
+    padding: 0 0.5em;
+  }
+  .todo-main {
+    padding: 0 0.2em;
+  }
+  .add-section {
+    max-width: 100vw;
+    padding: 0.5em 0.2em 0.5em 0.2em;
+  }
+  .pending-section, .completed-section {
+    padding: 1em 0.2em 1em 0.2em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    max-width: 100vw;
+  }
+}
+@media (max-width: 500px) {
+  .todo-header h1 {
+    font-size: 1.3rem;
+  }
+  .pending-section, .completed-section {
+    padding: 0.7em 0.1em 1em 0.1em;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+    max-width: 100vw;
+  }
+  .add-section {
+    max-width: 100vw;
+    padding: 0.5em 0.1em 0.5em 0.1em;
+  }
+}
